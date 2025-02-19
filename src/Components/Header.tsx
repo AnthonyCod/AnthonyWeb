@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           <a href="#" className="flex items-center">
             <img src={ReactLogo} className="mr-3 h-6 sm:h-9" alt="logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
-              AnthonyCoding
+              AnthonyCode
             </span>
           </a>
           <div className="flex items-center lg:order-2">

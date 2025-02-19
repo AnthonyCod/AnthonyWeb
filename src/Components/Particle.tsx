@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 
@@ -14,7 +14,13 @@ export default function Particle() {
     });
   }, []);
 
-  const particlesLoaded = (container) => {};
+  // Definir la promesa correctamente con el tipo void.
+  const particlesLoaded = (): Promise<void> => {
+    return new Promise<void>((resolve) => {
+      console.log('Particles loaded');
+      resolve(); // `resolve()` sin argumentos ya está bien, ya que no devuelve ningún valor.
+    });
+  };
 
   return (
     <>
@@ -28,21 +34,21 @@ export default function Particle() {
           options={{
             background: {
               color: {
-                value: "none", // Fondo oscuro del primer código
+                value: "none",
               },
             },
             fpsLimit: 120,
             interactivity: {
               events: {
                 onClick: {
-                  enable: false   ,
+                  enable: false,
                   mode: "push",
                 },
                 onHover: {
                   enable: true,
                   mode: "repulse",
                 },
-                resize: true,
+                resize: { enable: true },
               },
               modes: {
                 push: {
@@ -59,14 +65,13 @@ export default function Particle() {
                 value: 80,
                 density: {
                   enable: true,
-                  value_area: 800,
                 },
               },
               color: {
-                value: "#54b1c3", // Color de las partículas del primer código
+                value: "#54b1c3",
               },
               links: {
-                color: "#ffffff", // Color de las líneas del primer código
+                color: "#ffffff",
                 distance: 150,
                 enable: true,
                 opacity: 0.4,
@@ -84,26 +89,6 @@ export default function Particle() {
               },
               opacity: {
                 value: 0.5,
-              },
-              shape: {
-                type: "polygon", // Establecer las partículas como polígonos
-                polygon: {
-                  nb_sides: 5, // Puedes ajustar el número de lados si lo deseas
-                },
-                stroke: {
-                  width: 3,
-                  color: "#54b1c3", // Color del borde del polígono del primer código
-                },
-              },
-              size: {
-                value: 3,
-                random: true,
-                anim: {
-                  enable: false,
-                  speed: 40,
-                  size_min: 0.1,
-                  sync: false,
-                },
               },
             },
             detectRetina: true,

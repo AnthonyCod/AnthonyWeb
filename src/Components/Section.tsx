@@ -1,4 +1,4 @@
-import ParticlesBackground from "../Components/Particle";
+import ParticlesBackground from "./Particle";;
 import me from "../Images/me.png";
 
 const Section: React.FC = () => {

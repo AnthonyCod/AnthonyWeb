@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Agregar soporte para archivos .jsx */
+    "allowJs": true, // Permite la importación de archivos .jsx
+    "checkJs": true  // Activa la verificación de archivos .jsx
   },
   "include": ["src"]
 }
